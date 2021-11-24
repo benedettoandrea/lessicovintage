@@ -1,10 +1,8 @@
-// var mymap = L.map("map").setView([0, 0], 13);
-
-// L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//   maxZoom: 19,
-//   attribution:
-//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// }).addTo(mymap);
+/* - fondino carino
+   - pin personalizzati
+   - quartieri con linee poligonali vediamo dove e quali --> provo con quelli svg
+   - sidebar con selezione
+*/
 
 var mymap = L.map("map").setView(
   [38.86404237033969, -96.72198649319205],
