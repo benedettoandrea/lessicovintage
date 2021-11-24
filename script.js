@@ -4,7 +4,7 @@
    - sidebar con selezione
 */
 
-var mymap = L.map("map").setView(
+var mymap = L.map("map", { zoomControl: false }).setView(
   [38.86404237033969, -96.72198649319205],
   2.758837
 );
