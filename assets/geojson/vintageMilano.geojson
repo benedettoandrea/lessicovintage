@@ -4,13 +4,184 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Archetipo",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "GUASTALLA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.202531, 45.455634, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fiera di Sinigaglia",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.169625, 45.450567, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Guendj",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.173141, 45.451237, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mercatino di Brera",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "BRERA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.185489, 45.472505, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mercato Settimanale \"Fauché\"",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "SARPI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.163669, 45.486208, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mister Libra",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.180728, 45.456953, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Moscova District Market",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "BRERA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.183627, 45.479314, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Orient Express Vintage",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "SARPI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.181068, 45.480874, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PWC Milano",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.181961, 45.450744, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "REMIRA Market",
+        "styleUrl": "#icon-1899-0288D1-nodesc",
+        "styleHash": "48999a20",
+        "styleMapHash": {
+          "normal": "#icon-1899-0288D1-nodesc-normal",
+          "highlight": "#icon-1899-0288D1-nodesc-highlight"
+        },
+        "NIL": "SARPI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.175752, 45.485524, 0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "24h Closet",
         "styleUrl": "#icon-1899-0288D1-nodesc",
         "styleHash": "48999a20",
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
       },
       "geometry": {
         "type": "Point",
@@ -26,7 +197,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
       },
       "geometry": {
         "type": "Point",
@@ -42,7 +214,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA VIGENTINA - PORTA LODOVICA"
       },
       "geometry": {
         "type": "Point",
@@ -58,7 +231,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "ISOLA"
       },
       "geometry": {
         "type": "Point",
@@ -74,7 +248,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -90,7 +265,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "LORETO - CASORETTO - NOLO"
       },
       "geometry": {
         "type": "Point",
@@ -106,7 +282,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -122,7 +299,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BRERA"
       },
       "geometry": {
         "type": "Point",
@@ -138,7 +316,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "ISOLA"
       },
       "geometry": {
         "type": "Point",
@@ -154,7 +333,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "TALIEDO - MORSENCHIO - Q.RE FORLANINI"
       },
       "geometry": {
         "type": "Point",
@@ -170,7 +350,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PAGANO"
       },
       "geometry": {
         "type": "Point",
@@ -186,7 +367,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -202,7 +384,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "MAGENTA - S. VITTORE"
       },
       "geometry": {
         "type": "Point",
@@ -218,7 +401,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -234,7 +418,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
       },
       "geometry": {
         "type": "Point",
@@ -250,7 +435,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE"
       },
       "geometry": {
         "type": "Point",
@@ -266,7 +452,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE"
       },
       "geometry": {
         "type": "Point",
@@ -282,7 +469,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "GHISOLFA"
       },
       "geometry": {
         "type": "Point",
@@ -298,7 +486,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE"
       },
       "geometry": {
         "type": "Point",
@@ -314,7 +503,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
       },
       "geometry": {
         "type": "Point",
@@ -330,7 +520,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "GUASTALLA"
       },
       "geometry": {
         "type": "Point",
@@ -346,7 +537,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "STADIO - IPPODROMI"
       },
       "geometry": {
         "type": "Point",
@@ -362,7 +554,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "FARINI"
       },
       "geometry": {
         "type": "Point",
@@ -378,7 +571,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "GRECO - SEGNANO"
       },
       "geometry": {
         "type": "Point",
@@ -394,7 +588,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "GIAMBELLINO"
       },
       "geometry": {
         "type": "Point",
@@ -410,7 +605,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
       },
       "geometry": {
         "type": "Point",
@@ -426,7 +622,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -442,7 +639,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -458,7 +656,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PTA ROMANA"
       },
       "geometry": {
         "type": "Point",
@@ -474,7 +673,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
       },
       "geometry": {
         "type": "Point",
@@ -490,7 +690,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "ISOLA"
       },
       "geometry": {
         "type": "Point",
@@ -506,7 +707,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE"
       },
       "geometry": {
         "type": "Point",
@@ -522,7 +724,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "LORETO - CASORETTO - NOLO"
       },
       "geometry": {
         "type": "Point",
@@ -538,7 +741,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "PORTA TICINESE - CONCHETTA"
       },
       "geometry": {
         "type": "Point",
@@ -554,7 +758,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
@@ -570,7 +775,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE"
       },
       "geometry": {
         "type": "Point",
@@ -586,7 +792,8 @@
         "styleMapHash": {
           "normal": "#icon-1899-0288D1-nodesc-normal",
           "highlight": "#icon-1899-0288D1-nodesc-highlight"
-        }
+        },
+        "NIL": "DUOMO"
       },
       "geometry": {
         "type": "Point",
