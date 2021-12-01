@@ -39,6 +39,24 @@ var nilLayer = L.geoJSON(nil, { style: style }).addTo(mymap);
 // primo caricamento
 mymap.fitBounds(nilLayer.getBounds());
 
+function createCustomIcon(feature, latlng) {
+  let myIcon = L.icon({
+    iconUrl: "./assets/images/test17b.svg",
+    // shadowUrl: 'my-icon.png',
+    iconSize: [25, 35], // width and height of the image in pixels
+    // shadowSize:   [35, 20], // width, height of optional shadow image
+    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+    // shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
+    popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  });
+  return L.marker(latlng, { icon: myIcon });
+}
+
+// create an options object that specifies which function will called on each feature
+let myLayerOptions = {
+  pointToLayer: createCustomIcon,
+};
+
 // negozi
 var ronchettoSulNaviglioANDquartiereLodovicoIlMoro;
 var trenno;
@@ -82,7 +100,7 @@ var loretoANDcasorettoANDnoLo = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_loretoANDcasorettoANDnoLo = L.geoJSON(loretoANDcasorettoANDnoLo)
+var layer_loretoANDcasorettoANDnoLo = L.geoJSON(loretoANDcasorettoANDnoLo,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -141,7 +159,7 @@ var isola = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_isola = L.geoJSON(isola)
+var layer_isola = L.geoJSON(isola,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -166,7 +184,7 @@ var stadioANDippodromi = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_stadioANDippodromi = L.geoJSON(stadioANDippodromi)
+var layer_stadioANDippodromi = L.geoJSON(stadioANDippodromi,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -310,7 +328,7 @@ var duomo = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_duomo = L.geoJSON(duomo)
+var layer_duomo = L.geoJSON(duomo,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -351,7 +369,7 @@ var guastalla = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_guastalla = L.geoJSON(guastalla)
+var layer_guastalla = L.geoJSON(guastalla,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -378,7 +396,7 @@ var grecoANDsegnano = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano)
+var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -403,7 +421,7 @@ var farini = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_farini = L.geoJSON(farini)
+var layer_farini = L.geoJSON(farini,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -439,7 +457,7 @@ var portaRomana = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_portaRomana = L.geoJSON(portaRomana)
+var layer_portaRomana = L.geoJSON(portaRomana,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -464,7 +482,7 @@ var taliedoANDmorsenchioANDquartiereForlanini = {type:"FeatureCollection",featur
 },],};
 // prettier-ignore
 var layer_taliedoANDmorsenchioANDquartiereForlanini = L.geoJSON(
-  taliedoANDmorsenchioANDquartiereForlanini
+  taliedoANDmorsenchioANDquartiereForlanini,myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -558,7 +576,7 @@ var portaTicineseANDconcaDelNaviglio = {type:"FeatureCollection",features:[{
 },],};
 // prettier-ignore
 var layer_portaTicineseANDconcaDelNaviglio = L.geoJSON(
-  portaTicineseANDconcaDelNaviglio
+  portaTicineseANDconcaDelNaviglio,myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -693,7 +711,7 @@ var portaTicineseANDconchetta = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_portaTicineseANDconchetta = L.geoJSON(portaTicineseANDconchetta)
+var layer_portaTicineseANDconchetta = L.geoJSON(portaTicineseANDconchetta,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -726,7 +744,7 @@ var ghisolfa = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_ghisolfa = L.geoJSON(ghisolfa)
+var layer_ghisolfa = L.geoJSON(ghisolfa,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -757,7 +775,7 @@ var portaVigentinaANDportaLodovica = {type:"FeatureCollection",features:[{
 },],};
 // prettier-ignore
 var layer_portaVigentinaANDportaLodovica = L.geoJSON(
-  portaVigentinaANDportaLodovica
+  portaVigentinaANDportaLodovica,myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -860,7 +878,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {type:"FeatureCollection",featu
 },],};
 // prettier-ignore
 var layer_buenosAiresANDportaVeneziaANDportaMonforte = L.geoJSON(
-  buenosAiresANDportaVeneziaANDportaMonforte
+  buenosAiresANDportaVeneziaANDportaMonforte,myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -889,7 +907,7 @@ var giambellino = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_giambellino = L.geoJSON(giambellino)
+var layer_giambellino = L.geoJSON(giambellino,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -916,7 +934,7 @@ var magentaANDsanVittore = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_magentaANDsanVittore = L.geoJSON(magentaANDsanVittore)
+var layer_magentaANDsanVittore = L.geoJSON(magentaANDsanVittore,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -975,7 +993,7 @@ var sarpi = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_sarpi = L.geoJSON(sarpi)
+var layer_sarpi = L.geoJSON(sarpi,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -1000,7 +1018,7 @@ var pagano = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_pagano = L.geoJSON(pagano)
+var layer_pagano = L.geoJSON(pagano,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -1058,7 +1076,7 @@ var brera = {type:"FeatureCollection",features:[{
   }
 },],};
 // prettier-ignore
-var layer_brera = L.geoJSON(brera)
+var layer_brera = L.geoJSON(brera,myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
