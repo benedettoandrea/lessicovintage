@@ -41,7 +41,7 @@ mymap.fitBounds(nilLayer.getBounds());
 
 function createCustomIcon(feature, latlng) {
   let myIcon = L.icon({
-    iconUrl: "./assets/images/test17b.svg",
+    iconUrl: "./assets/images/popup.svg",
     // shadowUrl: 'my-icon.png',
     iconSize: [25, 35], // width and height of the image in pixels
     // shadowSize:   [35, 20], // width, height of optional shadow image
