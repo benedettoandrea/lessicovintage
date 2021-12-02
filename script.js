@@ -1,6 +1,16 @@
-/* - fondino carino: con jawg.io
-   - pin personalizzati: prossimamente
+/* Crediti:
+   - @dataset   CITTA METROPOLITANA MILANO - Confini Comuni e Zone Omogenee
+   - @autore    Città Metropolitana Milano
+   - @licenza   Creative Commons Attribution 4.0 International Public License
+  
+   - @dataset   DS964
+   - @autore    SIAD - Unità Sviluppo Open Data
+   - @licenza   Creative Commons Attribution 4.0 International Public License
+*/
+
+/* - mappa di sfondo: jawg.io
    - quartieri: nil del comune di milano
+   - pin personalizzati
    - sidebar con selezione
 */
 
@@ -43,11 +53,11 @@ function createCustomIcon(feature, latlng) {
   let myIcon = L.icon({
     iconUrl: "./assets/images/popup.svg",
     // shadowUrl: 'my-icon.png',
-    iconSize: [25, 35], // width and height of the image in pixels
-    // shadowSize:   [35, 20], // width, height of optional shadow image
-    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+    iconSize: [24, 32], // width and height of the image in pixels
+    // shadowSize: [35, 20], // width, height of optional shadow image
+    iconAnchor: [24, 32], // point of the icon which will correspond to marker's location
     // shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
-    popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+    popupAnchor: [-12, -16], // point from which the popup should open relative to the iconAnchor
   });
   return L.marker(latlng, { icon: myIcon });
 }
@@ -64,312 +74,330 @@ var portello;
 var bovisasca;
 var parcoNord;
 var figino;
-// prettier-ignore
-var loretoANDcasorettoANDnoLo = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "BADDARO'- il mercatino del Borgo",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var loretoANDcasorettoANDnoLo = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "BADDARO'- il mercatino del Borgo",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "LORETO - CASORETTO - NOLO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.227087, 45.488594, 0],
+      },
     },
-    "NIL": "LORETO - CASORETTO - NOLO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.227087, 45.488594, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "SHARE - Second HAnd REuse",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "SHARE - Second HAnd REuse",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "LORETO - CASORETTO - NOLO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.220543, 45.488895, 0],
+      },
     },
-    "NIL": "LORETO - CASORETTO - NOLO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.220543, 45.488895, 0]
-  }
-},],};
-// prettier-ignore
-var layer_loretoANDcasorettoANDnoLo = L.geoJSON(loretoANDcasorettoANDnoLo,myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
+  ],
+};
+var layer_loretoANDcasorettoANDnoLo = L.geoJSON(
+  loretoANDcasorettoANDnoLo,
+  myLayerOptions
+)
+  .bindPopup(function (o) {
+    return o.feature.properties.name;
   })
   .addTo(mymap);
 var quartoOggiaroANDvialbaANDmusocco;
-// prettier-ignore
-var isola = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Ambroeus Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var isola = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Ambroeus Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "ISOLA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.186046, 45.486581, 0],
+      },
     },
-    "NIL": "ISOLA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.186046, 45.486581, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Delphine Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Delphine Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "ISOLA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.186247, 45.486218, 0],
+      },
     },
-    "NIL": "ISOLA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.186247, 45.486218, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Room37 Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Room37 Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "ISOLA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.185415, 45.489656, 0],
+      },
     },
-    "NIL": "ISOLA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.185415, 45.489656, 0]
-  }
-},],};
-// prettier-ignore
-var layer_isola = L.geoJSON(isola,myLayerOptions)
+  ],
+};
+var layer_isola = L.geoJSON(isola, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
 var quartoCagnino;
-// prettier-ignore
-var stadioANDippodromi = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercatino Franchising Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var stadioANDippodromi = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mercatino Franchising Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "STADIO - IPPODROMI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.126428, 45.469315, 0],
+      },
     },
-    "NIL": "STADIO - IPPODROMI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.126428, 45.469315, 0]
-  }
-},],};
-// prettier-ignore
-var layer_stadioANDippodromi = L.geoJSON(stadioANDippodromi,myLayerOptions)
+  ],
+};
+var layer_stadioANDippodromi = L.geoJSON(stadioANDippodromi, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
 var quintoRomano;
-// prettier-ignore
-var duomo = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Back Stage Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var duomo = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Back Stage Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180929, 45.459574, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180929, 45.459574, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Bivio Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Bivio Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180226, 45.459019, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180226, 45.459019, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Groupies Vintage Di Cipriani Alice",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Groupies Vintage Di Cipriani Alice",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180087, 45.45885, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180087, 45.45885, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Humana Vintage Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Humana Vintage Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.189171, 45.463077, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.189171, 45.463077, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "my room Vintage Shop",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "my room Vintage Shop",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.182927, 45.462899, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.182927, 45.462899, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Napoleone",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Napoleone",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.186891, 45.461804, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.186891, 45.461804, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "THE CLOISTER",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "THE CLOISTER",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.185355, 45.46222, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.185355, 45.46222, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "VESTO MILANO",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "VESTO MILANO",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "DUOMO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180703, 45.461321, 0],
+      },
     },
-    "NIL": "DUOMO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180703, 45.461321, 0]
-  }
-},],};
-// prettier-ignore
-var layer_duomo = L.geoJSON(duomo,myLayerOptions)
+  ],
+};
+var layer_duomo = L.geoJSON(duomo, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
-// prettier-ignore
-var guastalla = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Archetipo",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var guastalla = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Archetipo",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "GUASTALLA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.202531, 45.455634, 0],
+      },
     },
-    "NIL": "GUASTALLA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.202531, 45.455634, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Mela Vintage - Negozio di Accessori Vintage, Bijoux, Second Hand Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Mela Vintage - Negozio di Accessori Vintage, Bijoux, Second Hand Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "GUASTALLA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.204684, 45.456446, 0],
+      },
     },
-    "NIL": "GUASTALLA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.204684, 45.456446, 0]
-  }
-},],};
-// prettier-ignore
-var layer_guastalla = L.geoJSON(guastalla,myLayerOptions)
+  ],
+};
+var layer_guastalla = L.geoJSON(guastalla, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -377,51 +405,57 @@ var layer_guastalla = L.geoJSON(guastalla,myLayerOptions)
 var sanSiro;
 var comasina;
 var tibaldi;
-// prettier-ignore
-var grecoANDsegnano = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercatino Milano Centrale",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var grecoANDsegnano = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mercatino Milano Centrale",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "GRECO - SEGNANO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.209973, 45.495372, 0],
+      },
     },
-    "NIL": "GRECO - SEGNANO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.209973, 45.495372, 0]
-  }
-},],};
-// prettier-ignore
-var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano,myLayerOptions)
+  ],
+};
+var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
 var deAngeliANDmonteRosa;
-// prettier-ignore
-var farini = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercatino Franchising Milano Jenner",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var farini = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mercatino Franchising Milano Jenner",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "FARINI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.174973, 45.496546, 0],
+      },
     },
-    "NIL": "FARINI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.174973, 45.496546, 0]
-  }
-},],};
-// prettier-ignore
-var layer_farini = L.geoJSON(farini,myLayerOptions)
+  ],
+};
+var layer_farini = L.geoJSON(farini, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -438,145 +472,156 @@ var parcoBoscoInCittà;
 var gorlaANDprecotto;
 var niguardaANDcaGrandaANDpratoCentenaroANDquartiereFulvioTesti;
 var triulzoSuperiore;
-// prettier-ignore
-var portaRomana = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Old Star Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var portaRomana = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Old Star Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PTA ROMANA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.203503, 45.449075, 0],
+      },
     },
-    "NIL": "PTA ROMANA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.203503, 45.449075, 0]
-  }
-},],};
-// prettier-ignore
-var layer_portaRomana = L.geoJSON(portaRomana,myLayerOptions)
+  ],
+};
+var layer_portaRomana = L.geoJSON(portaRomana, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
-// prettier-ignore
-var taliedoANDmorsenchioANDquartiereForlanini = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "East Market",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var taliedoANDmorsenchioANDquartiereForlanini = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "East Market",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "TALIEDO - MORSENCHIO - Q.RE FORLANINI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.24924, 45.45114, 0],
+      },
     },
-    "NIL": "TALIEDO - MORSENCHIO - Q.RE FORLANINI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.24924, 45.45114, 0]
-  }
-},],};
-// prettier-ignore
+  ],
+};
 var layer_taliedoANDmorsenchioANDquartiereForlanini = L.geoJSON(
-  taliedoANDmorsenchioANDquartiereForlanini,myLayerOptions
+  taliedoANDmorsenchioANDquartiereForlanini,
+  myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
-// prettier-ignore
-var portaTicineseANDconcaDelNaviglio = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mister Libra",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var portaTicineseANDconcaDelNaviglio = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mister Libra",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180728, 45.456953, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180728, 45.456953, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "PWC Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "PWC Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.181961, 45.450744, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.181961, 45.450744, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Abbigliamento Vintage Milano Darsena - Hangover Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Abbigliamento Vintage Milano Darsena - Hangover Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.175587, 45.454581, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.175587, 45.454581, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Lo Specchio Di Alice Snc",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Lo Specchio Di Alice Snc",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180498, 45.455285, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180498, 45.455285, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Mister Libra",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Mister Libra",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.180728, 45.456953, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCA DEL NAVIGLIO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.180728, 45.456953, 0]
-  }
-},],};
-// prettier-ignore
+  ],
+};
 var layer_portaTicineseANDconcaDelNaviglio = L.geoJSON(
-  portaTicineseANDconcaDelNaviglio,myLayerOptions
+  portaTicineseANDconcaDelNaviglio,
+  myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -590,128 +635,134 @@ var bicocca;
 var ortomercato;
 var lodiANDcorvetto;
 var muggiano;
-// prettier-ignore
-var portaTicineseANDconchetta = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Fiera di Sinigaglia",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var portaTicineseANDconchetta = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Fiera di Sinigaglia",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.169625, 45.450567, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.169625, 45.450567, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Guendj",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Guendj",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.173141, 45.451237, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.173141, 45.451237, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Guendj",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Guendj",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.173141, 45.451237, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.173141, 45.451237, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "24h Closet",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "24h Closet",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.170458, 45.452075, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.170458, 45.452075, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Humana Vintage Vigevano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Humana Vintage Vigevano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.171295, 45.453253, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.171295, 45.453253, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Pourquoi Moi Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Pourquoi Moi Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.174594, 45.451073, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.174594, 45.451073, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Sous Vintage Shop",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Sous Vintage Shop",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA TICINESE - CONCHETTA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.176322, 45.445825, 0],
+      },
     },
-    "NIL": "PORTA TICINESE - CONCHETTA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.176322, 45.445825, 0]
-  }
-},],};
-// prettier-ignore
-var layer_portaTicineseANDconchetta = L.geoJSON(portaTicineseANDconchetta,myLayerOptions)
+  ],
+};
+var layer_portaTicineseANDconchetta = L.geoJSON(
+  portaTicineseANDconchetta,
+  myLayerOptions
+)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -725,26 +776,29 @@ var padovaANDturroANDcrescenzago;
 var gratosoglioANDquartiereMissagliaANDquartiereTerrazze;
 var portaMagenta;
 var forzeArmate;
-// prettier-ignore
-var ghisolfa = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Insight Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var ghisolfa = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Insight Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "GHISOLFA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.161655, 45.490891, 0],
+      },
     },
-    "NIL": "GHISOLFA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.161655, 45.490891, 0]
-  }
-},],};
-// prettier-ignore
-var layer_ghisolfa = L.geoJSON(ghisolfa,myLayerOptions)
+  ],
+};
+var layer_ghisolfa = L.geoJSON(ghisolfa, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -755,27 +809,31 @@ var maciachiniANDmaggiolina;
 var bandeNere;
 var lambrateANDortica;
 var staderaANDchiesaRossaANDquartiereTorrettaANDconcaFallata;
-// prettier-ignore
-var portaVigentinaANDportaLodovica = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Alice in Vintage Milano",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var portaVigentinaANDportaLodovica = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Alice in Vintage Milano",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PORTA VIGENTINA - PORTA LODOVICA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.18737, 45.455473, 0],
+      },
     },
-    "NIL": "PORTA VIGENTINA - PORTA LODOVICA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.18737, 45.455473, 0]
-  }
-},],};
-// prettier-ignore
+  ],
+};
 var layer_portaVigentinaANDportaLodovica = L.geoJSON(
-  portaVigentinaANDportaLodovica,myLayerOptions
+  portaVigentinaANDportaLodovica,
+  myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -790,8 +848,10 @@ var ParcoForlaniniANDcavriano;
 var giardiniPortaVenezia;
 var portaGaribaldiANDportaNuova;
 var affori;
-// prettier-ignore
-var buenosAiresANDportaVeneziaANDportaMonforte = {type:"FeatureCollection",features:[{
+var buenosAiresANDportaVeneziaANDportaMonforte = {
+  type: "FeatureCollection",
+  features: [
+    {
       type: "Feature",
       properties: {
         name: "I Love Vintage Milano",
@@ -875,10 +935,12 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {type:"FeatureCollection",featu
         type: "Point",
         coordinates: [9.208454, 45.475654, 0],
       },
-},],};
-// prettier-ignore
+    },
+  ],
+};
 var layer_buenosAiresANDportaVeneziaANDportaMonforte = L.geoJSON(
-  buenosAiresANDportaVeneziaANDportaMonforte,myLayerOptions
+  buenosAiresANDportaVeneziaANDportaMonforte,
+  myLayerOptions
 )
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
@@ -888,26 +950,29 @@ var moncuccoANDsanCristoforo;
 var stazioneCentraleANDponteSeveso;
 var bovisa;
 var maggioreANDmusoccoANDcertosa;
-// prettier-ignore
-var giambellino = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercatopoli Milano Giambellino",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var giambellino = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mercatopoli Milano Giambellino",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "GIAMBELLINO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.151779, 45.451454, 0],
+      },
     },
-    "NIL": "GIAMBELLINO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.151779, 45.451454, 0]
-  }
-},],};
-// prettier-ignore
-var layer_giambellino = L.geoJSON(giambellino,myLayerOptions)
+  ],
+};
+var layer_giambellino = L.geoJSON(giambellino, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
@@ -915,168 +980,180 @@ var layer_giambellino = L.geoJSON(giambellino,myLayerOptions)
 var cittàStudi;
 var portaGenova;
 var corsica;
-// prettier-ignore
-var magentaANDsanVittore = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Humana Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var magentaANDsanVittore = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Humana Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "MAGENTA - S. VITTORE",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.175713, 45.459897, 0],
+      },
     },
-    "NIL": "MAGENTA - S. VITTORE"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.175713, 45.459897, 0]
-  }
-},],};
-// prettier-ignore
-var layer_magentaANDsanVittore = L.geoJSON(magentaANDsanVittore,myLayerOptions)
+  ],
+};
+var layer_magentaANDsanVittore = L.geoJSON(magentaANDsanVittore, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
 var cascinaMerlata;
-// prettier-ignore
-var sarpi = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercato Settimanale \"Fauché\"",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var sarpi = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: 'Mercato Settimanale "Fauché"',
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "SARPI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.163669, 45.486208, 0],
+      },
     },
-    "NIL": "SARPI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.163669, 45.486208, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Orient Express Vintage",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Orient Express Vintage",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "SARPI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.181068, 45.480874, 0],
+      },
     },
-    "NIL": "SARPI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.181068, 45.480874, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "REMIRA Market",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "REMIRA Market",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "SARPI",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.175752, 45.485524, 0],
+      },
     },
-    "NIL": "SARPI"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.175752, 45.485524, 0]
-  }
-},],};
-// prettier-ignore
-var layer_sarpi = L.geoJSON(sarpi,myLayerOptions)
+  ],
+};
+var layer_sarpi = L.geoJSON(sarpi, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
 var parcoDeiNavigli;
-// prettier-ignore
-var pagano = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "give and take",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var pagano = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "give and take",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "PAGANO",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.161343, 45.468703, 0],
+      },
     },
-    "NIL": "PAGANO"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.161343, 45.468703, 0]
-  }
-},],};
-// prettier-ignore
-var layer_pagano = L.geoJSON(pagano,myLayerOptions)
+  ],
+};
+var layer_pagano = L.geoJSON(pagano, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
   .addTo(mymap);
-// prettier-ignore
-var brera = {type:"FeatureCollection",features:[{
-  "type": "Feature",
-  "properties": {
-    "name": "Mercatino di Brera",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+var brera = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        name: "Mercatino di Brera",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "BRERA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.185489, 45.472505, 0],
+      },
     },
-    "NIL": "BRERA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.185489, 45.472505, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Moscova District Market",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Moscova District Market",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "BRERA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.183627, 45.479314, 0],
+      },
     },
-    "NIL": "BRERA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.183627, 45.479314, 0]
-  }
-},
-{
-  "type": "Feature",
-  "properties": {
-    "name": "Cavalli e Nastri Brera",
-    "styleUrl": "#icon-1899-0288D1-nodesc",
-    "styleHash": "48999a20",
-    "styleMapHash": {
-      "normal": "#icon-1899-0288D1-nodesc-normal",
-      "highlight": "#icon-1899-0288D1-nodesc-highlight"
+    {
+      type: "Feature",
+      properties: {
+        name: "Cavalli e Nastri Brera",
+        styleUrl: "#icon-1899-0288D1-nodesc",
+        styleHash: "48999a20",
+        styleMapHash: {
+          normal: "#icon-1899-0288D1-nodesc-normal",
+          highlight: "#icon-1899-0288D1-nodesc-highlight",
+        },
+        NIL: "BRERA",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [9.188191, 45.469442, 0],
+      },
     },
-    "NIL": "BRERA"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [9.188191, 45.469442, 0]
-  }
-},],};
-// prettier-ignore
-var layer_brera = L.geoJSON(brera,myLayerOptions)
+  ],
+};
+var layer_brera = L.geoJSON(brera, myLayerOptions)
   .bindPopup(function (layer) {
     return layer.feature.properties.name;
   })
