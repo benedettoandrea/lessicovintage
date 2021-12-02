@@ -1,6 +1,4 @@
-# prettier
-.prettierignore
 # geojson assets
-assets/geojson
+/assets/geojson
 # temporary images
 /assets/images/temp
