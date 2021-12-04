@@ -49,6 +49,7 @@ var nilLayer = L.geoJSON(nil, { style: style }).addTo(mymap);
 // primo caricamento
 mymap.fitBounds(nilLayer.getBounds());
 
+// icona
 function createCustomIcon(feature, latlng) {
   let myIcon = L.icon({
     iconUrl: "./assets/images/popup.svg",
@@ -62,9 +63,27 @@ function createCustomIcon(feature, latlng) {
   return L.marker(latlng, { icon: myIcon });
 }
 
+var customOptions = {
+  maxWidth: "400",
+  width: "200",
+  className: "custom",
+};
+
+function onEachFeature(feature, layer) {
+  layer.bindPopup(
+    "<p>" +
+      feature.properties.name +
+      '</br><a href="' +
+      feature.properties.maps +
+      '"target="_blank">Google Maps</a></p>',
+    customOptions
+  );
+}
+
 // create an options object that specifies which function will called on each feature
 let myLayerOptions = {
   pointToLayer: createCustomIcon,
+  onEachFeature: onEachFeature,
 };
 
 // negozi
@@ -88,6 +107,7 @@ var loretoANDcasorettoANDnoLo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "LORETO - CASORETTO - NOLO",
+        maps: "https://goo.gl/maps/c3otFnbZAkFAUbGN6",
       },
       geometry: {
         type: "Point",
@@ -105,6 +125,7 @@ var loretoANDcasorettoANDnoLo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "LORETO - CASORETTO - NOLO",
+        maps: "https://goo.gl/maps/N5gZMCwjiiHTUtJG9",
       },
       geometry: {
         type: "Point",
@@ -116,11 +137,7 @@ var loretoANDcasorettoANDnoLo = {
 var layer_loretoANDcasorettoANDnoLo = L.geoJSON(
   loretoANDcasorettoANDnoLo,
   myLayerOptions
-)
-  .bindPopup(function (o) {
-    return o.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var quartoOggiaroANDvialbaANDmusocco;
 var isola = {
   type: "FeatureCollection",
@@ -136,6 +153,7 @@ var isola = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "ISOLA",
+        maps: "https://g.page/ambroeusmilano?share",
       },
       geometry: {
         type: "Point",
@@ -153,6 +171,7 @@ var isola = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "ISOLA",
+        maps: "https://g.page/Delphinevintage?share",
       },
       geometry: {
         type: "Point",
@@ -170,6 +189,7 @@ var isola = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "ISOLA",
+        maps: "https://goo.gl/maps/GJMrbP2SRHwo5xY78",
       },
       geometry: {
         type: "Point",
@@ -178,11 +198,7 @@ var isola = {
     },
   ],
 };
-var layer_isola = L.geoJSON(isola, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_isola = L.geoJSON(isola, myLayerOptions).addTo(mymap);
 var quartoCagnino;
 var stadioANDippodromi = {
   type: "FeatureCollection",
@@ -198,6 +214,7 @@ var stadioANDippodromi = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "STADIO - IPPODROMI",
+        maps: "https://goo.gl/maps/MVxRZUY123b6oBmn8",
       },
       geometry: {
         type: "Point",
@@ -206,11 +223,10 @@ var stadioANDippodromi = {
     },
   ],
 };
-var layer_stadioANDippodromi = L.geoJSON(stadioANDippodromi, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_stadioANDippodromi = L.geoJSON(
+  stadioANDippodromi,
+  myLayerOptions
+).addTo(mymap);
 var quintoRomano;
 var duomo = {
   type: "FeatureCollection",
@@ -226,6 +242,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/PCQVEc5RAUGDg8hW7",
       },
       geometry: {
         type: "Point",
@@ -243,6 +260,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/etT32PV47YjogZrM9",
       },
       geometry: {
         type: "Point",
@@ -260,6 +278,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://g.page/groupiesvintage?share",
       },
       geometry: {
         type: "Point",
@@ -277,6 +296,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/sicWEHSqzWF9keAN8",
       },
       geometry: {
         type: "Point",
@@ -294,6 +314,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/SyW5nja9c6UqSaoy8",
       },
       geometry: {
         type: "Point",
@@ -311,6 +332,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/5ZHEHSRsSJzsTuUUA",
       },
       geometry: {
         type: "Point",
@@ -328,6 +350,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/MYWb97wUfQm8xQH88",
       },
       geometry: {
         type: "Point",
@@ -345,6 +368,7 @@ var duomo = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "DUOMO",
+        maps: "https://goo.gl/maps/M7C98TL8ptTYkior9",
       },
       geometry: {
         type: "Point",
@@ -353,11 +377,7 @@ var duomo = {
     },
   ],
 };
-var layer_duomo = L.geoJSON(duomo, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_duomo = L.geoJSON(duomo, myLayerOptions).addTo(mymap);
 var guastalla = {
   type: "FeatureCollection",
   features: [
@@ -372,6 +392,7 @@ var guastalla = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "GUASTALLA",
+        maps: "https://goo.gl/maps/Ao1eETJgvCv61BMk7",
       },
       geometry: {
         type: "Point",
@@ -389,6 +410,7 @@ var guastalla = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "GUASTALLA",
+        maps: "https://g.page/melavintage?share",
       },
       geometry: {
         type: "Point",
@@ -397,11 +419,7 @@ var guastalla = {
     },
   ],
 };
-var layer_guastalla = L.geoJSON(guastalla, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_guastalla = L.geoJSON(guastalla, myLayerOptions).addTo(mymap);
 var sanSiro;
 var comasina;
 var tibaldi;
@@ -419,6 +437,7 @@ var grecoANDsegnano = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "GRECO - SEGNANO",
+        maps: "https://goo.gl/maps/PFGynTZKtyyXFCYF9",
       },
       geometry: {
         type: "Point",
@@ -427,11 +446,9 @@ var grecoANDsegnano = {
     },
   ],
 };
-var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_grecoANDsegnano = L.geoJSON(grecoANDsegnano, myLayerOptions).addTo(
+  mymap
+);
 var deAngeliANDmonteRosa;
 var farini = {
   type: "FeatureCollection",
@@ -447,6 +464,7 @@ var farini = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "FARINI",
+        maps: "https://goo.gl/maps/APzUxSuGWHiSA9RX8",
       },
       geometry: {
         type: "Point",
@@ -455,11 +473,7 @@ var farini = {
     },
   ],
 };
-var layer_farini = L.geoJSON(farini, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_farini = L.geoJSON(farini, myLayerOptions).addTo(mymap);
 var bruzzano;
 var qt8;
 var stephenson;
@@ -486,6 +500,7 @@ var portaRomana = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PTA ROMANA",
+        maps: "https://goo.gl/maps/JsruRpsbNVX4YZzN6",
       },
       geometry: {
         type: "Point",
@@ -494,11 +509,7 @@ var portaRomana = {
     },
   ],
 };
-var layer_portaRomana = L.geoJSON(portaRomana, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_portaRomana = L.geoJSON(portaRomana, myLayerOptions).addTo(mymap);
 var taliedoANDmorsenchioANDquartiereForlanini = {
   type: "FeatureCollection",
   features: [
@@ -513,6 +524,7 @@ var taliedoANDmorsenchioANDquartiereForlanini = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "TALIEDO - MORSENCHIO - Q.RE FORLANINI",
+        maps: "https://goo.gl/maps/e3U9ctt1Hz3UYHjW8",
       },
       geometry: {
         type: "Point",
@@ -524,11 +536,7 @@ var taliedoANDmorsenchioANDquartiereForlanini = {
 var layer_taliedoANDmorsenchioANDquartiereForlanini = L.geoJSON(
   taliedoANDmorsenchioANDquartiereForlanini,
   myLayerOptions
-)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var portaTicineseANDconcaDelNaviglio = {
   type: "FeatureCollection",
   features: [
@@ -543,6 +551,7 @@ var portaTicineseANDconcaDelNaviglio = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+        maps: "https://goo.gl/maps/njGekmXztx1MNo4z9",
       },
       geometry: {
         type: "Point",
@@ -560,6 +569,7 @@ var portaTicineseANDconcaDelNaviglio = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+        maps: "https://g.page/pwc-milano-fashion-vintage?share",
       },
       geometry: {
         type: "Point",
@@ -577,6 +587,7 @@ var portaTicineseANDconcaDelNaviglio = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+        maps: "https://goo.gl/maps/PrBmnNam44usDfqq6",
       },
       geometry: {
         type: "Point",
@@ -594,27 +605,11 @@ var portaTicineseANDconcaDelNaviglio = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
+        maps: "https://goo.gl/maps/pLuXibvGRZVacSeX7",
       },
       geometry: {
         type: "Point",
         coordinates: [9.180498, 45.455285, 0],
-      },
-    },
-    {
-      type: "Feature",
-      properties: {
-        name: "Mister Libra",
-        styleUrl: "#icon-1899-0288D1-nodesc",
-        styleHash: "48999a20",
-        styleMapHash: {
-          normal: "#icon-1899-0288D1-nodesc-normal",
-          highlight: "#icon-1899-0288D1-nodesc-highlight",
-        },
-        NIL: "PORTA TICINESE - CONCA DEL NAVIGLIO",
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [9.180728, 45.456953, 0],
       },
     },
   ],
@@ -622,11 +617,7 @@ var portaTicineseANDconcaDelNaviglio = {
 var layer_portaTicineseANDconcaDelNaviglio = L.geoJSON(
   portaTicineseANDconcaDelNaviglio,
   myLayerOptions
-)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var treTorri;
 var assiano;
 var morivione;
@@ -649,6 +640,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://goo.gl/maps/AiJT9jKn6vXe28tR8",
       },
       geometry: {
         type: "Point",
@@ -666,23 +658,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
-      },
-      geometry: {
-        type: "Point",
-        coordinates: [9.173141, 45.451237, 0],
-      },
-    },
-    {
-      type: "Feature",
-      properties: {
-        name: "Guendj",
-        styleUrl: "#icon-1899-0288D1-nodesc",
-        styleHash: "48999a20",
-        styleMapHash: {
-          normal: "#icon-1899-0288D1-nodesc-normal",
-          highlight: "#icon-1899-0288D1-nodesc-highlight",
-        },
-        NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://g.page/guendjmilano?share",
       },
       geometry: {
         type: "Point",
@@ -700,6 +676,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://goo.gl/maps/AsLnWVYFaxzf1d5DA",
       },
       geometry: {
         type: "Point",
@@ -717,6 +694,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://g.page/humanavintagevigevano?share",
       },
       geometry: {
         type: "Point",
@@ -734,6 +712,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://g.page/pourquoimoivintage?share",
       },
       geometry: {
         type: "Point",
@@ -751,6 +730,7 @@ var portaTicineseANDconchetta = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA TICINESE - CONCHETTA",
+        maps: "https://goo.gl/maps/yxvRNxGTxcDJcRMT6",
       },
       geometry: {
         type: "Point",
@@ -762,11 +742,7 @@ var portaTicineseANDconchetta = {
 var layer_portaTicineseANDconchetta = L.geoJSON(
   portaTicineseANDconchetta,
   myLayerOptions
-)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var umbriaANDmoliseANDcalvairate;
 var roserio;
 var ronchettoDelleRane;
@@ -790,6 +766,7 @@ var ghisolfa = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "GHISOLFA",
+        maps: "https://goo.gl/maps/g1KE5cBD1ckdyvh29",
       },
       geometry: {
         type: "Point",
@@ -798,11 +775,7 @@ var ghisolfa = {
     },
   ],
 };
-var layer_ghisolfa = L.geoJSON(ghisolfa, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_ghisolfa = L.geoJSON(ghisolfa, myLayerOptions).addTo(mymap);
 var chiaravalle;
 var parcoDelleAbbazie;
 var maciachiniANDmaggiolina;
@@ -823,6 +796,7 @@ var portaVigentinaANDportaLodovica = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PORTA VIGENTINA - PORTA LODOVICA",
+        maps: "https://goo.gl/maps/hbeuZpiq9wpEgFBU9",
       },
       geometry: {
         type: "Point",
@@ -834,11 +808,7 @@ var portaVigentinaANDportaLodovica = {
 var layer_portaVigentinaANDportaLodovica = L.geoJSON(
   portaVigentinaANDportaLodovica,
   myLayerOptions
-)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var scaloRomana;
 var xxiiMarzo;
 var cimianoANDrottoleANDquartiereFeltre;
@@ -862,6 +832,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE",
+        maps: "https://goo.gl/maps/4fNRmGZf1zjSkPpx5",
       },
       geometry: {
         type: "Point",
@@ -879,6 +850,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE",
+        maps: "https://g.page/Indacosecondhand?share",
       },
       geometry: {
         type: "Point",
@@ -896,6 +868,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE",
+        maps: "https://goo.gl/maps/2B89r8q4ZsztSX4t5",
       },
       geometry: {
         type: "Point",
@@ -913,6 +886,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE",
+        maps: "https://g.page/saltless?share",
       },
       geometry: {
         type: "Point",
@@ -930,6 +904,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BUENOS AIRES - PORTA VENEZIA - PORTA MONFORTE",
+        maps: "https://goo.gl/maps/KDPdrHixMUmcyuWN9",
       },
       geometry: {
         type: "Point",
@@ -941,11 +916,7 @@ var buenosAiresANDportaVeneziaANDportaMonforte = {
 var layer_buenosAiresANDportaVeneziaANDportaMonforte = L.geoJSON(
   buenosAiresANDportaVeneziaANDportaMonforte,
   myLayerOptions
-)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+).addTo(mymap);
 var moncuccoANDsanCristoforo;
 var stazioneCentraleANDponteSeveso;
 var bovisa;
@@ -964,6 +935,7 @@ var giambellino = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "GIAMBELLINO",
+        maps: "https://goo.gl/maps/rTqSDAtoR8yp2ZJS7",
       },
       geometry: {
         type: "Point",
@@ -972,11 +944,7 @@ var giambellino = {
     },
   ],
 };
-var layer_giambellino = L.geoJSON(giambellino, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_giambellino = L.geoJSON(giambellino, myLayerOptions).addTo(mymap);
 var cittàStudi;
 var portaGenova;
 var corsica;
@@ -994,6 +962,7 @@ var magentaANDsanVittore = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "MAGENTA - S. VITTORE",
+        maps: "https://g.page/humana-vintage-milano?share",
       },
       geometry: {
         type: "Point",
@@ -1002,11 +971,10 @@ var magentaANDsanVittore = {
     },
   ],
 };
-var layer_magentaANDsanVittore = L.geoJSON(magentaANDsanVittore, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_magentaANDsanVittore = L.geoJSON(
+  magentaANDsanVittore,
+  myLayerOptions
+).addTo(mymap);
 var cascinaMerlata;
 var sarpi = {
   type: "FeatureCollection",
@@ -1022,6 +990,7 @@ var sarpi = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "SARPI",
+        maps: "https://goo.gl/maps/R7Wsbgxv9c7dXox89",
       },
       geometry: {
         type: "Point",
@@ -1039,6 +1008,7 @@ var sarpi = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "SARPI",
+        maps: "https://goo.gl/maps/ksMgS2yMKdCwopS36",
       },
       geometry: {
         type: "Point",
@@ -1056,6 +1026,7 @@ var sarpi = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "SARPI",
+        maps: "https://goo.gl/maps/n2wGv5VnePfVFCUH8",
       },
       geometry: {
         type: "Point",
@@ -1064,11 +1035,7 @@ var sarpi = {
     },
   ],
 };
-var layer_sarpi = L.geoJSON(sarpi, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_sarpi = L.geoJSON(sarpi, myLayerOptions).addTo(mymap);
 var parcoDeiNavigli;
 var pagano = {
   type: "FeatureCollection",
@@ -1084,6 +1051,7 @@ var pagano = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "PAGANO",
+        maps: "https://goo.gl/maps/a1NLEGFSwAMUnFub9",
       },
       geometry: {
         type: "Point",
@@ -1092,11 +1060,7 @@ var pagano = {
     },
   ],
 };
-var layer_pagano = L.geoJSON(pagano, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_pagano = L.geoJSON(pagano, myLayerOptions).addTo(mymap);
 var brera = {
   type: "FeatureCollection",
   features: [
@@ -1111,6 +1075,7 @@ var brera = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BRERA",
+        maps: "https://goo.gl/maps/WhyDUeuU9ov49Eq67",
       },
       geometry: {
         type: "Point",
@@ -1128,6 +1093,7 @@ var brera = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BRERA",
+        maps: "https://goo.gl/maps/K1WKkKcj4qU2esU46",
       },
       geometry: {
         type: "Point",
@@ -1145,6 +1111,7 @@ var brera = {
           highlight: "#icon-1899-0288D1-nodesc-highlight",
         },
         NIL: "BRERA",
+        maps: "https://goo.gl/maps/Kqkmmt5g9sTJrDFPA",
       },
       geometry: {
         type: "Point",
@@ -1153,11 +1120,7 @@ var brera = {
     },
   ],
 };
-var layer_brera = L.geoJSON(brera, myLayerOptions)
-  .bindPopup(function (layer) {
-    return layer.feature.properties.name;
-  })
-  .addTo(mymap);
+var layer_brera = L.geoJSON(brera, myLayerOptions).addTo(mymap);
 var rogoredoANDsantaGiulia;
 var adriano;
 var lorenteggio;
