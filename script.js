@@ -1,4 +1,8 @@
 /* Crediti:
+   - @benedettoandrea
+   - @github    https://github.com/benedettoandrea
+   - @behance   https://www.behance.net/benedettoandrea
+
    - @dataset   CITTA METROPOLITANA MILANO - Confini Comuni e Zone Omogenee
    - @autore    Città Metropolitana Milano
    - @licenza   Creative Commons Attribution 4.0 International Public License
@@ -13,6 +17,11 @@
    - pin personalizzati
    - sidebar con selezione
 */
+
+console.log(
+  "%cprogrammazione: @benedettoandrea\ngithub: https://github.com/benedettoandrea\nbehance: https://www.behance.net/benedettoandrea",
+  "font-size: medium; font-family: Inter"
+);
 
 // città metropolitana di milano (controllo panning)
 // prettier-ignore
